@@ -1,0 +1,87 @@
+h1 {
+  font-size: 3.75rem;
+  line-height: 1;
+  font-weight: 400;
+  margin: 0;
+
+  @media (max-width: 767px) {
+    font-size: 2rem;
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+  margin: 0;
+  color: #a855f7;
+}
+
+p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.p--alt {
+  font-size: 15px;
+  line-height: 25px;
+  color: #5d6770;
+  margin-bottom: 5px;
+}
+
+.p--xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  font-size: 100%;
+  border-radius: 0.25rem;
+  border: 1px solid #e5e7eb;
+  margin: 5px 0;
+}
+
+button {
+  border-radius: 30px;
+  font-size: 16px;
+  box-shadow: rgb(0 0 0 / 24%) 0px 1px 2px 0px;
+  background-color: rgb(233, 81, 30);
+  border: 1px solid rgb(233, 81, 30);
+  padding: 16.5px 0;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:first-of-type {
+    margin-bottom: 10px;
+  }
+
+  &:hover {
+    background-color: rgb(244, 149, 23);
+    color: #000;
+    border: 1px solid rgb(242, 151, 120);
+  }
+}
+
+.button-alt {
+  background-color: #ffffff;
+  color: rgb(233, 81, 30);
+  border: 1px solid #d8d8d8;
+  box-shadow: none;
+
+  &:hover {
+    background-color: rgb(253, 207, 70);
+    color: #000;
+    border: 1px solid rgb(248, 195, 111);
+  }
+}

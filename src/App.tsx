@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import './App.scss';
+import { AppContext, DefaultState } from './store/AppContext';
+import { IState } from './store/interfaces';
+import { AppRouter } from '../src/app/router';
+import { Header } from '../src/components/header';
 
 function App() {
+  const [state, setState] = useState<IState>(DefaultState);
+
+  const updateState = (value: IState): void => {
+    const updatedState = { ...state, ...value };
+    setState(updatedState);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext.Provider
+      value={{
+        state: state,
+        updateState: updateState,
+      }}>
+      <Header />
+      <AppRouter />
+    </AppContext.Provider>
   );
 }
 
