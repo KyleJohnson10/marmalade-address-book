@@ -10,7 +10,7 @@ export interface IState {
 export type IUpdateState = {contacts?: IContact[]};
 
 export interface IContact {
-  id: number | string;
+  id: number;
   name: string;
   email: string;
   telephone: string;

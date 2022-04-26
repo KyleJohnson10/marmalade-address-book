@@ -1,8 +1,14 @@
-import React, { FunctionComponent, useState, useContext } from 'react';
+import React, {
+  FunctionComponent,
+  useState,
+  useContext,
+  useEffect,
+} from 'react';
 import styled from 'styled-components';
 import Modal from 'react-modal';
 import { IContact } from '../../store/interfaces';
 import { AppContext } from '../../store/AppContext';
+import { Indicator } from '../indicator';
 
 const Form = styled.form`
   display: flex;
@@ -28,8 +34,8 @@ export const FormModal: FunctionComponent<IFormModal> = (props: IFormModal) => {
     state: { contacts },
   } = useContext(AppContext);
 
-  const [formValues, setFormValues] = useState<IContact>({
-    id: contact ? contact.id : contacts ? contacts.length + 1 : '',
+  const contactData = {
+    id: contact ? contact.id : contacts ? contacts.length + 1 : 1,
     name: contact ? contact.name : '',
     email: contact ? contact.email : '',
     telephone: contact ? contact.telephone : '',
@@ -38,25 +44,31 @@ export const FormModal: FunctionComponent<IFormModal> = (props: IFormModal) => {
     town: contact ? contact.town : '',
     county: contact ? contact.county : '',
     postcode: contact ? contact.postcode : '',
-  });
+  }
+
+  const [formValues, setFormValues] = useState<IContact>(contactData);
+
+  useEffect(() => {
+    setFormValues(contactData);
+  }, [contact]);
 
   const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    console.log(formValues);
+    let newContacts = contacts;
+
     if (contact && contacts) {
-      // Can I redo this function so if it exists I can remove and add the new state in the same updateState()
+      newContacts = contacts?.filter(contact => contact.id !== formValues.id);
+    }
+
+    if (newContacts) {
       updateState({
-        contacts: contacts?.filter(contact => contact.id !== formValues.id),
+        contacts: [...newContacts, formValues],
       });
     }
-    //if (contacts) {
-    //  updateState({
-    //    contacts: [...contacts, formValues],
-    //  });
-    //}
+    console.log(contacts);
     setOpenModal(false);
     setFormValues({
-      id: '',
+      id: 1,
       name: '',
       email: '',
       telephone: '',
@@ -87,6 +99,10 @@ export const FormModal: FunctionComponent<IFormModal> = (props: IFormModal) => {
           width: '50%',
           position: 'relative',
           inset: '0',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
         },
         overlay: {
           display: 'flex',
@@ -95,9 +111,10 @@ export const FormModal: FunctionComponent<IFormModal> = (props: IFormModal) => {
         },
       }}
       contentLabel="Example Modal">
-      <h1 style={{ marginBottom: '15px' }}>
+      <h1 style={{ marginBottom: '5px' }}>
         {contact ? 'Edit' : 'Add'} a contact
       </h1>
+      <Indicator />
       <Form onSubmit={handleSubmitForm}>
         <input
           value={formValues.name}
@@ -149,6 +166,13 @@ export const FormModal: FunctionComponent<IFormModal> = (props: IFormModal) => {
         />
         <button style={{ marginTop: '10px' }} type="submit">
           {contact ? 'Edit' : 'Add'} Contact
+        </button>
+        <button
+          className="button-alt"
+          onClick={() => {
+            setOpenModal(false);
+          }}>
+          Cancel
         </button>
       </Form>
     </Modal>

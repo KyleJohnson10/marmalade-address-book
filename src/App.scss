@@ -1,7 +1,7 @@
 h1 {
-  font-size: 3.75rem;
+  font-size: 3rem;
   line-height: 1;
-  font-weight: 400;
+  font-weight: 600;
   margin: 0;
 
   @media (max-width: 767px) {
@@ -16,14 +16,6 @@ h2 {
   margin: 0;
 }
 
-h3 {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  font-weight: 400;
-  margin: 0;
-  color: #a855f7;
-}
-
 p {
   margin: 0;
   line-height: 1.5;
@@ -36,11 +28,6 @@ p {
   margin-bottom: 5px;
 }
 
-.p--xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 input {
   width: 100%;
   padding: 0.5rem;
@@ -49,6 +36,10 @@ input {
   border-radius: 0.25rem;
   border: 1px solid #e5e7eb;
   margin: 5px 0;
+
+  &:focus-visible {
+    outline: 1px solid rgb(233, 81, 30);
+  }
 }
 
 button {

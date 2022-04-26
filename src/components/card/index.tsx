@@ -11,7 +11,7 @@ const CardContainer = styled.div`
   flex-direction: column;
   border: 1px solid rgb(221, 221, 221);
   border-radius: 5px;
-  margin: 0 10px 15px 0;
+  margin: 0 5px 15px 5px;
 `;
 
 const StyledColumn = styled(Col)`
@@ -53,7 +53,7 @@ export const Card: FunctionComponent<ICard> = (props: ICard) => {
     state: { contacts },
   } = useContext(AppContext);
 
-  const [openModal, setOpenModal ] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const removeContact = (id: number | string) => {
     updateState({
@@ -74,18 +74,27 @@ export const Card: FunctionComponent<ICard> = (props: ICard) => {
         <p style={{ marginBottom: '15px' }} className="p--alt">
           Postcode: {postcode}
         </p>
-        <button onClick={() => {
-          setOpenModal(true);
-        }}>Edit</button>
+        <button
+          onClick={() => {
+            setOpenModal(true);
+          }}>
+          Edit
+        </button>
         <button
           className="button-alt"
           onClick={() => {
-            removeContact(id);
+            if (id) {
+              removeContact(id);
+            }
           }}>
           Remove
         </button>
       </CardContainer>
-      <FormModal contact={props.contact} setOpenModal={setOpenModal} openModal={openModal} />
+      <FormModal
+        contact={props.contact}
+        setOpenModal={setOpenModal}
+        openModal={openModal}
+      />
     </StyledColumn>
   );
 };

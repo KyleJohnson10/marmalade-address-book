@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useContext, useState } from 'react';
-import { RouteComponentProps, navigate } from '@reach/router';
+import { RouteComponentProps } from '@reach/router';
 import styled from 'styled-components';
-import { Container, Row, Col } from 'styled-bootstrap-grid';
+import { Container, Row } from 'styled-bootstrap-grid';
 import { AppContext } from '../../store/AppContext';
 import { Indicator } from '../../components/indicator';
 import { Card } from '../../components/card';
@@ -55,7 +55,7 @@ export const Homepage: FunctionComponent<RouteComponentProps> = () => {
       <Container>
         <Row>
           {contacts &&
-            contacts?.map((contact, i) => <Card key={i} contact={contact} />)}
+            contacts?.sort((a,b) => a.id - b.id).map((contact, i) => <Card key={contact.id} contact={contact} />)}
         </Row>
       </Container>
       <FlexContainer style={{ marginTop: '30px' }}>
