@@ -14,9 +14,21 @@ export interface IContact {
   name: string;
   email: string;
   telephone: string;
+  houseNumber?: string;
+  postcode: string;
   addressLine1: string;
   addressLine2?: string;
   town?: string;
   county: string;
-  postcode: string;
+}
+
+export interface IPostcodeLookup {
+  data: {
+    addresses: [{
+      line_1: string;
+      locality: string;
+      town_or_city: string;
+      county: string;
+    }]
+  }
 }

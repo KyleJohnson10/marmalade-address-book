@@ -13,12 +13,6 @@ export const FlexContainer = styled(Container)`
   justify-content: center;
 `;
 
-export const StyledRow = styled(Row)`
-  margin-right: 0;
-  margin-top: 32px;
-  margin-left: 0;
-`;
-
 const TextContainer = styled.div`
   max-width: 800px;
 
@@ -38,8 +32,6 @@ export const Homepage: FunctionComponent<RouteComponentProps> = () => {
 
   const [openModal, setOpenModal] = useState(false);
 
-  console.log(contacts);
-
   return (
     <>
       <FlexContainer>
@@ -54,6 +46,7 @@ export const Homepage: FunctionComponent<RouteComponentProps> = () => {
       </FlexContainer>
       <Container>
         <Row>
+          {/*Here we sort the contacts in ID order, and then map each contact to a card*/}
           {contacts &&
             contacts?.sort((a,b) => a.id - b.id).map((contact, i) => <Card key={contact.id} contact={contact} />)}
         </Row>

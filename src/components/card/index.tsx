@@ -55,6 +55,7 @@ export const Card: FunctionComponent<ICard> = (props: ICard) => {
 
   const [openModal, setOpenModal] = useState(false);
 
+  // This function removes the contact from the global state by filtering it out using the ID.
   const removeContact = (id: number | string) => {
     updateState({
       contacts: contacts?.filter(contact => contact.id !== id),

@@ -12,7 +12,7 @@ export const DefaultState: IState = {
       addressLine2: "Flitch Way",
       town: "Dunmow",
       county: "Essex",
-      postcode: "cm8 9eu",
+      postcode: "LE15 7JN",
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ export const DefaultState: IState = {
       addressLine2: "Flitch Way",
       town: "Dunmow",
       county: "Essex",
-      postcode: "cm8 9eu",
+      postcode: "LE15 7JN",
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ export const DefaultState: IState = {
       addressLine2: "Flitch Way",
       town: "Dunmow",
       county: "Essex",
-      postcode: "cm8 9eu",
+      postcode: "LE15 7JN",
     }
   ]
 }
