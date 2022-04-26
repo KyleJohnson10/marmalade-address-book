@@ -48,7 +48,9 @@ export const Homepage: FunctionComponent<RouteComponentProps> = () => {
         <Row>
           {/*Here we sort the contacts in ID order, and then map each contact to a card*/}
           {contacts &&
-            contacts?.sort((a,b) => a.id - b.id).map((contact, i) => <Card key={contact.id} contact={contact} />)}
+            contacts
+              ?.sort((a, b) => a.id - b.id)
+              .map((contact, i) => <Card key={contact.id} contact={contact} />)}
         </Row>
       </Container>
       <FlexContainer style={{ marginTop: '30px' }}>
@@ -60,6 +62,12 @@ export const Homepage: FunctionComponent<RouteComponentProps> = () => {
         </AddContactButton>
       </FlexContainer>
       <FormModal setOpenModal={setOpenModal} openModal={openModal} />
+      <FlexContainer style={{ marginTop: '100px' }}>
+        <p>
+          P.S: I had tempermental issues with the api, some postcodes weren't
+          allowed in the free trial, please use LE15 7JN.
+        </p>
+      </FlexContainer>
     </>
   );
 };
