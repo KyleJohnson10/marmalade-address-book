@@ -64,7 +64,7 @@ export const Homepage: FunctionComponent<RouteComponentProps> = () => {
       <FormModal setOpenModal={setOpenModal} openModal={openModal} />
       <FlexContainer style={{ marginTop: '100px' }}>
         <p>
-          P.S: I had tempermental issues with the api, some postcodes weren't
+          P.S: I had some temperamental issues with the api, some postcodes weren't
           allowed in the free trial, please use LE15 7JN.
         </p>
       </FlexContainer>
