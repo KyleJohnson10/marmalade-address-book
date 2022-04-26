@@ -109,8 +109,7 @@ export const FormModal: FunctionComponent<IFormModal> = (props: IFormModal) => {
           justifyContent: 'center',
           alignItems: 'center',
         },
-      }}
-      contentLabel="Example Modal">
+      }}>
       <h1 style={{ marginBottom: '5px' }}>
         {contact ? 'Edit' : 'Add'} a contact
       </h1>
